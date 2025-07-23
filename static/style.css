@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.chat-title {
+  color: #ffffff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 6px #00f0ff;
+}
+body {
+  background: linear-gradient(135deg, #ff00cc, #3333ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 30px;
+}
+
+/* Shared container for login/signup */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 40px;
+  width: 350px;
+  animation: fadeIn 1s ease-in-out forwards;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+h2 {
+  color: black;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #00ffe0;
+}
+
+button {
+  width: 15%;
+  padding: 12px;
+  background: #00ff88;
+  color: black;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.4s, transform 0.1s ease;
+}
+
+button:hover {
+  background: #00ffaa;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+a {
+  color: #fff;
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #00e5ff;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.5) rotateY(30deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* 🎯 Chatbot specific styles */
+.chat-container {
+  width: 600px;
+  height: 680px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: popupSlide 1s ease;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  color: #fff;
+  scroll-behavior: smooth;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.message {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  animation: bubblePop 0.5s ease;
+  transition: 0.3s ease;
+}
+
+.message.user {
+  background-color: #00ffcc;
+  align-self: flex-end;
+  color: #000;
+  font-weight: 500;
+}
+
+.message.bot {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  align-self: flex-start;
+}
+
+/*  INPUT section with visible typing field */
+.input-container {
+  display: flex;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+}
+
+.input-container input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  margin-right: 8px;
+  transition: 0.3s ease;
+  caret-color: #00ffee;
+  font-weight: 500;
+}
+
+.input-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.input-container input:focus {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px #00ffe0;
+}
+
+.input-container button {
+  background: #00ff88;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  min-width: 70px;
+}
+
+.input-container button:hover {
+  background: #00ffaa;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+/* Animations */
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popupSlide {
+  from {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

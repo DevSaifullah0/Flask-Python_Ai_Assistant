@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saifullah The AI Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chat-container">
+    
+    <!-- Chatbot Title -->
+    <h2 class="chat-title">Saifullah The AI Assistant</h2>
+    
+    <!-- Message Area -->
+    <div class="chat-messages" id="chat">
+      <!-- Messages will be dynamically injected here -->
+    </div>
+    
+    <!-- Input Area -->
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Ask me anything..." onkeydown="if(event.key === 'Enter') sendMessage()">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='JavaS.js') }}"></script>
+</body>
+</html>
